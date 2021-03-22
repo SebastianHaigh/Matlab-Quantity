@@ -20,7 +20,7 @@ classdef Millisecond
         end
         
         function samples = convert_sample(self, sample_rate)
-            import Quantity.Time.Sample
+            import Time.Sample
 
             seconds = self.convert_second();
             number_of_samples = seconds.get() * sample_rate.get();
@@ -28,7 +28,7 @@ classdef Millisecond
         end
         
         function seconds = convert_second(self)
-            import Quantity.Time.Second
+            import Time.Second
             
             seconds = Second(self.time / 1000);
         end

@@ -20,7 +20,7 @@ classdef Hertz
         end
         
         function seconds = convert_period(self)
-            import Quantity.Time.Second
+            import Time.Second
 
             seconds = Second(1/self.frequency);
         end
