@@ -7,7 +7,7 @@ classdef Point3 < matlab.unittest.TestCase
         end
 
         function test_get_methods(testCase)
-            vec = [127, 729, 12];
+            vec = [127; 729; 12];
             p = Point3(vec(1), vec(2), vec(3));
             
             testCase.verifyEqual(p.get(), vec);
@@ -17,8 +17,8 @@ classdef Point3 < matlab.unittest.TestCase
         end
 
         function test_distance_zero(testCase)
-            vec1 = [127, 729, 12];
-            vec2 = [127, 729, 12];
+            vec1 = [127; 729; 12];
+            vec2 = [127; 729; 12];
 
             p1 = Point3(vec1(1), vec1(2), vec1(3));
             p2 = Point3(vec2(1), vec2(2), vec2(3));
@@ -28,8 +28,8 @@ classdef Point3 < matlab.unittest.TestCase
         end
 
         function test_distance_non_zero(testCase)
-            vec1 = [127, 729, 12];
-            vec2 = [-521, 912, 320];
+            vec1 = [127; 729; 12];
+            vec2 = [-521; 912; 320];
 
             p1 = Point3(vec1(1), vec1(2), vec1(3));
             p2 = Point3(vec2(1), vec2(2), vec2(3));
@@ -42,6 +42,17 @@ classdef Point3 < matlab.unittest.TestCase
 
             testCase.verifyEqual(p1.distance(p2), expected_distance);
             testCase.verifyEqual(distance(p1, p2), expected_distance);
+        end
+
+        function test_distance_from_origin(testCase)
+            vec = [127; 729; 12];
+
+            p1 = Point3(vec(1), vec(2), vec(3));
+
+            expected_distance = sqrt(vec(1)^2 + vec(2)^2 + vec(3)^2);
+
+            testCase.verifyEqual(p1.distance(), expected_distance);
+            testCase.verifyEqual(distance(p1), expected_distance);
         end
     end
 
