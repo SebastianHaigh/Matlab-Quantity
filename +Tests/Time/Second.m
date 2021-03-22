@@ -14,8 +14,8 @@ classdef Second < matlab.unittest.TestCase
 
     methods (TestMethodSetup)
         function setup_test(testCase)
-            import Quantity.Time.Second
-            import Quantity.Frequency.SamplesPerSecond
+            import Time.Second
+            import Frequency.SamplesPerSecond
 
             testCase.S = Second(10);
             testCase.SR = SamplesPerSecond(1000);

@@ -16,7 +16,7 @@ classdef Millimeter3D < matlab.unittest.TestCase
 
     methods (TestMethodSetup)
         function setup_test(testCase)
-            import Quantity.Length.Millimeter3D
+            import Length.Millimeter3D
             
             testCase.MM1 = Millimeter3D(1000, 2000, 3000);
             testCase.MM2 = Millimeter3D(1, 2, 3);
@@ -41,8 +41,8 @@ classdef Millimeter3D < matlab.unittest.TestCase
         function test_distance_with_input_syntax_1(testCase)
             MM3 = distance(testCase.MM1, testCase.MM2);
             MM4 = distance(testCase.MM2, testCase.MM1);
-            testCase.verifyClass(MM3, 'Quantity.Length.Millimeter');
-            testCase.verifyClass(MM4, 'Quantity.Length.Millimeter');
+            testCase.verifyClass(MM3, 'Length.Millimeter');
+            testCase.verifyClass(MM4, 'Length.Millimeter');
             testCase.verifyEqual(MM3.get(), MM4.get());
             testCase.verifyEqual(MM3.get(), 3737.915729387168, 'AbsTol', 10^-6);
             testCase.verifyEqual(MM4.get(), 3737.915729387168, 'AbsTol', 10^-6);
@@ -51,8 +51,8 @@ classdef Millimeter3D < matlab.unittest.TestCase
         function test_distance_without_input_syntax_1(testCase)
             MM3 = distance(testCase.MM1);
             MM4 = distance(testCase.MM2);
-            testCase.verifyClass(MM3, 'Quantity.Length.Millimeter');
-            testCase.verifyClass(MM4, 'Quantity.Length.Millimeter');
+            testCase.verifyClass(MM3, 'Length.Millimeter');
+            testCase.verifyClass(MM4, 'Length.Millimeter');
             testCase.verifyEqual(MM3.get(), 3741.657386773941, 'AbsTol', 10^-6);
             testCase.verifyEqual(MM4.get(), 3.741657386773941, 'AbsTol', 10^-6);
         end
@@ -60,8 +60,8 @@ classdef Millimeter3D < matlab.unittest.TestCase
         function test_distance_with_input_syntax_2(testCase)
             MM3 = testCase.MM1.distance(testCase.MM2);
             MM4 = testCase.MM2.distance(testCase.MM1);
-            testCase.verifyClass(MM3, 'Quantity.Length.Millimeter');
-            testCase.verifyClass(MM4, 'Quantity.Length.Millimeter');
+            testCase.verifyClass(MM3, 'Length.Millimeter');
+            testCase.verifyClass(MM4, 'Length.Millimeter');
             testCase.verifyEqual(MM3.get(), MM4.get());
             testCase.verifyEqual(MM3.get(), 3737.915729387168, 'AbsTol', 10^-6);
             testCase.verifyEqual(MM4.get(), 3737.915729387168, 'AbsTol', 10^-6);
@@ -70,8 +70,8 @@ classdef Millimeter3D < matlab.unittest.TestCase
         function test_distance_without_input_syntax_2(testCase)
             MM3 = testCase.MM1.distance();
             MM4 = testCase.MM2.distance();
-            testCase.verifyClass(MM3, 'Quantity.Length.Millimeter');
-            testCase.verifyClass(MM4, 'Quantity.Length.Millimeter');
+            testCase.verifyClass(MM3, 'Length.Millimeter');
+            testCase.verifyClass(MM4, 'Length.Millimeter');
             testCase.verifyEqual(MM3.get(), 3741.657386773941, 'AbsTol', 10^-6);
             testCase.verifyEqual(MM4.get(), 3.741657386773941, 'AbsTol', 10^-6);
         end
@@ -79,15 +79,15 @@ classdef Millimeter3D < matlab.unittest.TestCase
         function test_meter_conversion(testCase)
             M1 = testCase.MM1.convert_meter();
             M2 = testCase.MM2.convert_meter();
-            testCase.verifyClass(M1, 'Quantity.Length.Meter3D');
-            testCase.verifyClass(M2, 'Quantity.Length.Meter3D');
+            testCase.verifyClass(M1, 'Length.Meter3D');
+            testCase.verifyClass(M2, 'Length.Meter3D');
             testCase.verifyEqual(M1.get(), [1; 2; 3]);
             testCase.verifyEqual(M2.get(), [0.001; 0.002; 0.003]);
         end
 
         function test_addition_syntax_1(testCase)
             MM3 = add(testCase.MM1, testCase.MM2);
-            testCase.verifyClass(MM3, 'Quantity.Length.Millimeter3D');
+            testCase.verifyClass(MM3, 'Length.Millimeter3D');
             testCase.verifyEqual(testCase.MM1.get(), [1000; 2000; 3000]);
             testCase.verifyEqual(testCase.MM2.get(), [1; 2; 3]);
             testCase.verifyEqual(MM3.get(), [1001; 2002; 3003]);
@@ -95,7 +95,7 @@ classdef Millimeter3D < matlab.unittest.TestCase
 
         function test_addition_syntax_2(testCase)
             MM3 = testCase.MM1.add(testCase.MM2);
-            testCase.verifyClass(MM3, 'Quantity.Length.Millimeter3D');
+            testCase.verifyClass(MM3, 'Length.Millimeter3D');
             testCase.verifyEqual(testCase.MM1.get(), [1000; 2000; 3000]);
             testCase.verifyEqual(testCase.MM2.get(), [1; 2; 3]);
             testCase.verifyEqual(MM3.get(), [1001; 2002; 3003]);
@@ -104,8 +104,8 @@ classdef Millimeter3D < matlab.unittest.TestCase
         function test_subtraction_syntax_1(testCase)
             MM3 = subtract(testCase.MM1, testCase.MM2);
             MM4 = subtract(testCase.MM2, testCase.MM1);
-            testCase.verifyClass(MM3, 'Quantity.Length.Millimeter3D');
-            testCase.verifyClass(MM4, 'Quantity.Length.Millimeter3D');
+            testCase.verifyClass(MM3, 'Length.Millimeter3D');
+            testCase.verifyClass(MM4, 'Length.Millimeter3D');
             testCase.verifyEqual(testCase.MM1.get(), [1000; 2000; 3000]);
             testCase.verifyEqual(testCase.MM2.get(), [1; 2; 3]);
             testCase.verifyEqual(MM3.get(), [999; 1998; 2997]);
@@ -115,8 +115,8 @@ classdef Millimeter3D < matlab.unittest.TestCase
         function test_subtraction_syntax_2(testCase)
             MM3 = testCase.MM1.subtract(testCase.MM2);
             MM4 = testCase.MM2.subtract(testCase.MM1);
-            testCase.verifyClass(MM3, 'Quantity.Length.Millimeter3D');
-            testCase.verifyClass(MM4, 'Quantity.Length.Millimeter3D');
+            testCase.verifyClass(MM3, 'Length.Millimeter3D');
+            testCase.verifyClass(MM4, 'Length.Millimeter3D');
             testCase.verifyEqual(testCase.MM1.get(), [1000; 2000; 3000]);
             testCase.verifyEqual(testCase.MM2.get(), [1; 2; 3]);
             testCase.verifyEqual(MM3.get(), [999; 1998; 2997]);

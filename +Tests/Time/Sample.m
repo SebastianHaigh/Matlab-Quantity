@@ -14,8 +14,8 @@ classdef Sample < matlab.unittest.TestCase
 
     methods (TestMethodSetup)
         function setup_test(testCase)
-            import Quantity.Time.Sample
-            import Quantity.Frequency.SamplesPerSecond
+            import Time.Sample
+            import Frequency.SamplesPerSecond
 
             testCase.SR = SamplesPerSecond(1000);
             testCase.SP = Sample(1000, testCase.SR.convert_period());
