@@ -10,7 +10,7 @@ classdef Point3 < matlab.unittest.TestCase
             vec = [127, 729, 12];
             p = Point3(vec(1), vec(2), vec(3));
             
-            testCase.verifyEqual(p.get(), vec;
+            testCase.verifyEqual(p.get(), vec);
             testCase.verifyEqual(p.get_x(), vec(1));
             testCase.verifyEqual(p.get_y(), vec(2));
             testCase.verifyEqual(p.get_z(), vec(3));
