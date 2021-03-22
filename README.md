@@ -2,7 +2,11 @@
 
 Version: 1.1.0-alpha
 
+Main Branch: 
 [![Run MATLAB Tests on GitHub-Hosted Runner](https://github.com/SebastianHaigh/Matlab-Quantity/actions/workflows/quantity.yml/badge.svg)](https://github.com/SebastianHaigh/Matlab-Quantity/actions/workflows/quantity.yml)
+
+This Branch:
+[![Run MATLAB Tests on GitHub-Hosted Runner](https://github.com/SebastianHaigh/Matlab-Quantity/actions/workflows/quantity.yml/badge.svg?branch=FEATURE-Seperate-Point-Class)](https://github.com/SebastianHaigh/Matlab-Quantity/actions/workflows/quantity.yml)
 
 Matlab-Quantity is a prototype toolbox for managing unit conversions.
 
