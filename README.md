@@ -4,7 +4,7 @@ Version: 1.0.0-alpha
 
 [![Run MATLAB Tests on GitHub-Hosted Runner](https://github.com/SebastianHaigh/Matlab-Quantity/actions/workflows/quantity.yml/badge.svg)](https://github.com/SebastianHaigh/Matlab-Quantity/actions/workflows/quantity.yml)
 
-Matlab-Quantity is a protoype toolbox for managing unit conversions.
+Matlab-Quantity is a prototype toolbox for managing unit conversions.
 
 ## Length Package
 
