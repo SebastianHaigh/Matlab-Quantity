@@ -15,8 +15,6 @@ classdef Meter3D < matlab.unittest.TestCase
 
     methods (TestMethodSetup)
         function setup_test(testCase)
-            import Meter3D
-            
             testCase.M1 = Meter3D(1000, 2000, 3000);
             testCase.M2 = Meter3D(1, 2, 3);
         end
