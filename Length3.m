@@ -1,4 +1,4 @@
-classdef (Abstract) Length3 < matlab.mixin.Heterogenous
+classdef (Abstract) Length3 < matlab.mixin.Heterogeneous
 
     methods (Abstract)
         add()
