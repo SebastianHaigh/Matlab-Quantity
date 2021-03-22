@@ -16,8 +16,6 @@ classdef Millimeter3D < matlab.unittest.TestCase
 
     methods (TestMethodSetup)
         function setup_test(testCase)
-            import Millimeter3D
-            
             testCase.MM1 = Millimeter3D(1000, 2000, 3000);
             testCase.MM2 = Millimeter3D(1, 2, 3);
         end

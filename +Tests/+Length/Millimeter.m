@@ -15,8 +15,6 @@ classdef Millimeter < matlab.unittest.TestCase
 
     methods (TestMethodSetup)
         function setup_test(testCase)
-            import Millimeter
-            
             testCase.MM1 = Millimeter(10000);
             testCase.MM2 = Millimeter(5000);
         end

@@ -14,7 +14,6 @@ classdef Second < matlab.unittest.TestCase
 
     methods (TestMethodSetup)
         function setup_test(testCase)
-
             testCase.S = Second(10);
             testCase.SR = SamplesPerSecond(1000);
         end
