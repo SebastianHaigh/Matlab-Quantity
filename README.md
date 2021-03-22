@@ -6,6 +6,16 @@ Version: 1.0.0-alpha
 
 Matlab-Quantity is a prototype toolbox for managing unit conversions.
 
+## Point3
+
+---
+
+Point3 is a base class for storing 3D points. This is useful for modelling positions.
+
+## Millimeter3 & Meter3
+
+Millimeter3 and Meter3 are built around the functionality of the Point3 class. They offers all the same methods as a Point3 except they also tracks the unit of the point coordinates and allows conversions to other units.
+
 ## Length Package
 
 ---
