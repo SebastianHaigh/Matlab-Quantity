@@ -4,7 +4,7 @@ classdef Sample
     
     properties
         number_of_samples
-        period Second
+        period Quantity.Second
     end
     
     methods
@@ -22,7 +22,8 @@ classdef Sample
         function seconds = convert_second(self)
             %METHOD1 Summary of this method goes here
             %   Detailed explanation goes here
-
+            import Quantity.Second
+            
             seconds = Second(self.number_of_samples * self.period.get());
         end
         

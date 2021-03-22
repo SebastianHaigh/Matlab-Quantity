@@ -52,7 +52,8 @@ classdef Millimeter
             % Millimeter.convert_meter 
             %
             %   M = Millimeter.convert_meter()
-
+            import Quantity.Meter
+            
             meters = Meter(self.value/1000);
         end
     end

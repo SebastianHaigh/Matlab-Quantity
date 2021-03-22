@@ -15,6 +15,7 @@ classdef Meter < matlab.unittest.TestCase
 
     methods (TestMethodSetup)
         function setup_test(testCase)
+            import Quantity.Meter
             testCase.M1 = Meter(10000);
             testCase.M2 = Meter(5000);
         end
@@ -28,13 +29,13 @@ classdef Meter < matlab.unittest.TestCase
 
         function test_millimeter_conversion(testCase)
             MM = testCase.M1.convert_millimeter();
-            testCase.verifyClass(MM, 'Millimeter');
+            testCase.verifyClass(MM, 'Quantity.Millimeter');
             testCase.verifyEqual(MM.get(), 10000000);
         end
 
         function test_addition_syntax_1(testCase)
             M3 = add(testCase.M1, testCase.M2);
-            testCase.verifyClass(M3, 'Meter');
+            testCase.verifyClass(M3, 'Quantity.Meter');
             testCase.verifyEqual(testCase.M1.get(), 10000);
             testCase.verifyEqual(testCase.M2.get(), 5000);
             testCase.verifyEqual(M3.get(), 15000);
@@ -42,7 +43,7 @@ classdef Meter < matlab.unittest.TestCase
 
         function test_addition_syntax_2(testCase)
             M3 = testCase.M1.add(testCase.M2);
-            testCase.verifyClass(M3, 'Meter');
+            testCase.verifyClass(M3, 'Quantity.Meter');
             testCase.verifyEqual(testCase.M1.get(), 10000);
             testCase.verifyEqual(testCase.M2.get(), 5000);
             testCase.verifyEqual(M3.get(), 15000);
@@ -51,8 +52,8 @@ classdef Meter < matlab.unittest.TestCase
         function test_subtraction_syntax_1(testCase)
             M3 = subtract(testCase.M1, testCase.M2);
             M4 = subtract(testCase.M2, testCase.M1);
-            testCase.verifyClass(M3, 'Meter');
-            testCase.verifyClass(M4, 'Meter');
+            testCase.verifyClass(M3, 'Quantity.Meter');
+            testCase.verifyClass(M4, 'Quantity.Meter');
             testCase.verifyEqual(testCase.M1.get(), 10000);
             testCase.verifyEqual(testCase.M2.get(), 5000);
             testCase.verifyEqual(M3.get(), 5000);
@@ -62,8 +63,8 @@ classdef Meter < matlab.unittest.TestCase
         function test_subtraction_syntax_2(testCase)
             M3 = testCase.M1.subtract(testCase.M2);
             M4 = testCase.M2.subtract(testCase.M1);
-            testCase.verifyClass(M3, 'Meter');
-            testCase.verifyClass(M4, 'Meter');
+            testCase.verifyClass(M3, 'Quantity.Meter');
+            testCase.verifyClass(M4, 'Quantity.Meter');
             testCase.verifyEqual(testCase.M1.get(), 10000);
             testCase.verifyEqual(testCase.M2.get(), 5000);
             testCase.verifyEqual(M3.get(), 5000);

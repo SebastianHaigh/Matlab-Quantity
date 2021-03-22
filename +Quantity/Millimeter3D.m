@@ -1,37 +1,47 @@
-classdef Meter3D
-    %METER3D Summary of this class goes here
-    %   Detailed explanation goes here
-    
-    properties
+classdef Millimeter3D
+    % Millimeter3D A class that hold a three dimensional position vector
+    % specified in units of millimeters.
+    %
+    %   Millimeter3D Methods:
+    %       Millimeter3D - Class constructor.
+    %       distance - returns the distance between this point and another
+    %       point
+    %       add - add a point to this point
+    %       subtract - subtracts a point from this point
+    %       get_x - returns the x coordinate of the point
+    %       get_y - returns the y coordinate of the point
+    %       get_z - returns the z coordinate of the point
+    %       get_vector - returns a (3,1) double containing the coordinates
+    %       of the point.
+
+    properties (Access = private)
         x (1,1) double
         y (1,1) double
         z (1,1) double
     end
-    
-    methods
-        function self = Meter3D(x, y, z)
-            % Meter3D Creates an instance of the Meter3D class.
+
+    methods (Access = public)
+        function self = Millimeter3D(x, y, z)
+            % Millimeter3D Creates an instance of the Millimeter3D class.
             %
-            %   P = Meter3D(X, Y, Z) creates an instance of the Meter3D
+            %   P = Millimeter3D(X, Y, Z) creates an instance of the Millimeter3D
             %   class (P) with x, y, z coordinates at X, Y, and Z.
 
             self.x = x;
             self.y = y;
             self.z = z;
         end
-        
+
         function result = distance(self, point)
-            % Meter3D.distance Returns the distance between this point
+            % Millimeter3D.distance Returns the distance between this point
             % and another point.
             %
-            %   D = Meter3D.distance(P) returns a distance D that is
+            %   D = Millimeter3D.distance(P) returns a distance D that is
             %   the Euclidean distance between this point and the point P,
             %   where the point P is provided as another instance of the
-            %   the class Simulation.Environment.Meter3D.
-            %
-            %   D = Meter3D.distance() returns the length of the Meter3D vector,
-            %   or its distance from the origin
-
+            %   the class Millimeter3D.
+            import Quantity.Millimeter
+            
             if nargin > 1
                 dist = (self.x - point.get_x())^2;
                 dist = dist + (self.y - point.get_y())^2;
@@ -40,16 +50,15 @@ classdef Meter3D
             else
                 dist = sqrt(self.x^2 + self.y^2 + self.z^2);
             end
-            result = Meter(dist);
-
+            result = Millimeter(dist);
         end
 
         function self = add(self, point)
-            % Meter3D.add Returns the sum of this point with another
+            % Millimeter3D.add Returns the sum of this point with another
             % point.
             %
-            %   M = Meter3D.add(P) returns an object M of type
-            %   Meter3D whose position is the sum of the point that called 
+            %   M = Millimeter3D.add(P) returns an object M of type
+            %   Millimeter3D whose position is the sum of the point that called 
             %   the method and the point P.
             %
             %   SEE ALSO: subtract
@@ -60,11 +69,11 @@ classdef Meter3D
         end
 
         function self = subtract(self, point)
-            % Meter3D.subtract Returns the difference between this point
+            % Millimeter3D.subtract Returns the difference between this point
             % and another point.
             %
-            %   M = Meter3D.subtract(P) returns an object M of type
-            %   Meter3D whose position is the difference of the point that 
+            %   M = Millimeter3D.subtract(P) returns an object M of type
+            %   Millimeter3D whose position is the difference of the point that 
             %   called the method and the point P.
             %
             %   SEE ALSO: add
@@ -75,10 +84,10 @@ classdef Meter3D
         end
 
         function x = get_x(self)
-            % Meter3D.get_x Returns a the value of this point's x
+            % Millimeter3D.get_x Returns a the value of this point's x
             % coordinate.
             %
-            %   X = Meter3D.get_x() returns a double (X) containing the
+            %   X = Millimeter3D.get_x() returns a double (X) containing the
             %   value of this point's x coordinate.
             %
             %   SEE ALSO: get_y, get_z, get
@@ -87,10 +96,10 @@ classdef Meter3D
         end
 
         function y = get_y(self)
-            % Meter3D.get_y Returns a the value of this point's y
+            % Millimeter3D.get_y Returns a the value of this point's y
             % coordinate.
             %
-            %   Y = Meter3D.get_y() returns a double (Y) containing the
+            %   Y = Millimeter3D.get_y() returns a double (Y) containing the
             %   value of this point's y coordinate.
             %
             %   SEE ALSO: get_x, get_z, get
@@ -99,10 +108,10 @@ classdef Meter3D
         end
 
         function z = get_z(self)
-            % Meter3D.get_z Returns a the value of this point's z
+            % Millimeter3D.get_z Returns a the value of this point's z
             % coordinate.
             %
-            %   Z = Meter3D.get_z() returns a double (Z) containing the
+            %   Z = Millimeter3D.get_z() returns a double (Z) containing the
             %   value of this point's z coordinate.
             %
             %   SEE ALSO: get_x, get_y, get
@@ -111,9 +120,9 @@ classdef Meter3D
         end
 
         function vector = get(self)
-            % Meter3D.get Returns a the 3D vector
+            % Millimeter3D.get Returns a the 3D vector
             %
-            %   V = Meter3D.get() returns a (3,1) double (V)
+            %   V = Millimeter3D.get() returns a (3,1) double (V)
             %   containing the value of this point's x, y, and z coordinates.
             %
             %   SEE ALSO: get_x, get_y, get_z
@@ -121,10 +130,11 @@ classdef Meter3D
             vector = [self.x; self.y; self.z];
         end
 
-        function meter = convert_millimeter(self)
+        function meter = convert_meter(self)
+            import Quantity.Meter3D
 
-            meter = Millimeter3D(self.x*1000, self.y*1000, self.z*1000);
+            meter = Meter3D(self.x/1000, self.y/1000, self.z/1000);
         end
     end
-end
 
+end

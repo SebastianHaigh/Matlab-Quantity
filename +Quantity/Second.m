@@ -1,5 +1,5 @@
-classdef Millisecond
-    %MILLISECONDS Summary of this class goes here
+classdef Second
+    %SECONDS Summary of this class goes here
     %   Detailed explanation goes here
     
     properties
@@ -7,8 +7,8 @@ classdef Millisecond
     end
     
     methods
-        function self = Millisecond(time)
-            %MILLISECONDS Construct an instance of this class
+        function self = Second(time)
+            %SECONDS Construct an instance of this class
             %   Detailed explanation goes here
             self.time = time;
         end
@@ -20,14 +20,16 @@ classdef Millisecond
         end
         
         function samples = convert_sample(self, sample_rate)
-
-            seconds = self.convert_second();
-            number_of_samples = seconds.get() * sample_rate.get();
+            import Quantity.Sample
+            
+            number_of_samples = round(self.time * sample_rate.get());
             samples = Sample(number_of_samples, sample_rate.convert_period());
         end
         
-        function seconds = convert_second(self)
-            seconds = Second(self.time / 1000);
+        function milliseconds = convert_millisecond(self)
+            import Quantity.Millisecond
+
+            milliseconds = Millisecond(self.time * 1000);
         end
     end
 end
