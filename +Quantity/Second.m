@@ -20,14 +20,14 @@ classdef Second
         end
         
         function samples = convert_sample(self, sample_rate)
-            import Time.Sample
+            import Quantity.Sample
 
             number_of_samples = round(self.time * sample_rate.get());
             samples = Sample(number_of_samples, sample_rate.convert_period());
         end
         
         function milliseconds = convert_millisecond(self)
-            import Time.Millisecond
+            import Quantity.Millisecond
 
             milliseconds = Millisecond(self.time * 1000);
         end

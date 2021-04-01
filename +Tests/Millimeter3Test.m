@@ -1,18 +1,22 @@
-classdef Millimeter3 < matlab.unittest.TestCase
+classdef Millimeter3Test < matlab.unittest.TestCase
 
     methods (Test)
         function test_object_construction_with_point(testCase)
+            import Quantity.Millimeter3
+            import Quantity.Point3
             p = Point3(0, 0, 0);
             mm = Millimeter3(p);
-            testCase.verifyClass(mm, 'Millimeter3');
+            testCase.verifyClass(mm, 'Quantity.Millimeter3');
         end
 
         function test_object_construction_with_double(testCase)
+            import Quantity.Millimeter3
             mm = Millimeter3(0, 0, 0);
-            testCase.verifyClass(mm, 'Millimeter3');
+            testCase.verifyClass(mm, 'Quantity.Millimeter3');
         end
 
         function test_get_methods(testCase)
+            import Quantity.Millimeter3
             vec = [127; 729; 12];
             mm = Millimeter3(vec(1), vec(2), vec(3));
             
@@ -23,6 +27,8 @@ classdef Millimeter3 < matlab.unittest.TestCase
         end
 
         function test_distance_zero(testCase)
+            import Quantity.Millimeter3
+            import Quantity.Point3
             vec1 = [127; 729; 12];
             vec2 = [127; 729; 12];
 
@@ -34,6 +40,8 @@ classdef Millimeter3 < matlab.unittest.TestCase
         end
 
         function test_distance_non_zero(testCase)
+            import Quantity.Millimeter3
+            import Quantity.Point3
             vec1 = [127; 729; 12];
             vec2 = [-521; 912; 320];
 
@@ -51,6 +59,7 @@ classdef Millimeter3 < matlab.unittest.TestCase
         end
 
         function test_distance_from_origin(testCase)
+            import Quantity.Millimeter3
             vec = [127; 729; 12];
 
             mm1 = Millimeter3(vec(1), vec(2), vec(3));

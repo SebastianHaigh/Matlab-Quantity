@@ -1,4 +1,4 @@
-classdef Millimeter < matlab.unittest.TestCase
+classdef MillimeterTest < matlab.unittest.TestCase
 
     % Public methods of the Millimeter class are:
     %

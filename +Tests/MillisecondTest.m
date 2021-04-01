@@ -1,4 +1,4 @@
-classdef Millisecond < matlab.unittest.TestCase
+classdef MillisecondTest < matlab.unittest.TestCase
 
     % Public methods of the Millisecond class are:
     %

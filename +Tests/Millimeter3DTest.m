@@ -1,4 +1,4 @@
-classdef Millimeter3D < matlab.unittest.TestCase
+classdef Millimeter3DTest < matlab.unittest.TestCase
 
     % Public methods of the Millimeter3D class are:
     %

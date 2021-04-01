@@ -1,4 +1,4 @@
-classdef Meter3D < matlab.unittest.TestCase
+classdef Meter3DTest < matlab.unittest.TestCase
 
     % Public methods of the Meter3D class are:
     %

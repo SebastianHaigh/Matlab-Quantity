@@ -1,4 +1,4 @@
-classdef Meter < matlab.unittest.TestCase
+classdef MeterTest < matlab.unittest.TestCase
 
     % Public methods of the Meter class are:
     %

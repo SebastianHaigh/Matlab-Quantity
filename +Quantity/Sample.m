@@ -22,7 +22,7 @@ classdef Sample
         function seconds = convert_second(self)
             %METHOD1 Summary of this method goes here
             %   Detailed explanation goes here
-            import Time.Second
+            import Quantity.Second
 
             seconds = Second(self.number_of_samples * self.period.get());
         end

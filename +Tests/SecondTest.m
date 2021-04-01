@@ -1,4 +1,4 @@
-classdef Second < matlab.unittest.TestCase
+classdef SecondTest < matlab.unittest.TestCase
 
     % Public methods of the Second class are:
     %
@@ -14,8 +14,8 @@ classdef Second < matlab.unittest.TestCase
 
     methods (TestMethodSetup)
         function setup_test(testCase)
-            import Time.Second
-            import Frequency.SamplesPerSecond
+            import Quantity.Second
+            import Quantity.SamplesPerSecond
 
             testCase.S = Second(10);
             testCase.SR = SamplesPerSecond(1000);

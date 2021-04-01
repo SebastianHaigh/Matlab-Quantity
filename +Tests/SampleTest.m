@@ -1,4 +1,4 @@
-classdef Sample < matlab.unittest.TestCase
+classdef SampleTest < matlab.unittest.TestCase
 
     % Public methods of the Sample class are:
     %

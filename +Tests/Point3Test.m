@@ -1,12 +1,14 @@
-classdef Point3 < matlab.unittest.TestCase
+classdef Point3Test < matlab.unittest.TestCase
 
     methods (Test)
         function test_object_construction(testCase)
+            import Quantity.Point3
             p = Point3(0, 0, 0);
-            testCase.verifyClass(p, 'Point3');
+            testCase.verifyClass(p, 'Quantity.Point3');
         end
 
         function test_get_methods(testCase)
+            import Quantity.Point3
             vec = [127; 729; 12];
             p = Point3(vec(1), vec(2), vec(3));
             
@@ -17,6 +19,7 @@ classdef Point3 < matlab.unittest.TestCase
         end
 
         function test_distance_zero(testCase)
+            import Quantity.Point3
             vec1 = [127; 729; 12];
             vec2 = [127; 729; 12];
 
@@ -28,6 +31,7 @@ classdef Point3 < matlab.unittest.TestCase
         end
 
         function test_distance_non_zero(testCase)
+            import Quantity.Point3
             vec1 = [127; 729; 12];
             vec2 = [-521; 912; 320];
 
@@ -45,6 +49,7 @@ classdef Point3 < matlab.unittest.TestCase
         end
 
         function test_distance_from_origin(testCase)
+            import Quantity.Point3
             vec = [127; 729; 12];
 
             p1 = Point3(vec(1), vec(2), vec(3));
@@ -53,6 +58,22 @@ classdef Point3 < matlab.unittest.TestCase
 
             testCase.verifyEqual(p1.distance(), expected_distance);
             testCase.verifyEqual(distance(p1), expected_distance);
+        end
+
+        function test_add(testCase)
+            import Quantity.Point3
+            vec1 = [127; 729; 12];
+            vec2 = [12; 729; 127];
+
+            p1 = Point3(vec(1), vec(2), vec(3));
+            p2 = Point3(vec(1), vec(2), vec(3));
+
+            p3 = p1.add(p2);
+            p4 = p2.add(p1);
+            p5 = add(p1, p2);
+            p6 = add(p2, p1);
+
+            testCase.verifyEqual(p3.get(), vec1 + vec2);
         end
     end
 

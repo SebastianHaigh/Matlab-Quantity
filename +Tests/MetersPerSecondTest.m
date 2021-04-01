@@ -1,4 +1,4 @@
-classdef MetersPerSecond < matlab.unittest.TestCase
+classdef MetersPerSecondTest < matlab.unittest.TestCase
 
     % Public methods of the MetersPerSecond class are:
     %

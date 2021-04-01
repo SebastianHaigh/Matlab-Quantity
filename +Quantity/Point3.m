@@ -30,18 +30,6 @@ classdef Point3
         end
 
         function output = distance(self, point)
-            % Point3.distance Returns the distance between this point
-            % and another point.
-            %
-            %   D = Point3.distance(P) returns a distance D that is
-            %   the Euclidean distance between this point and the point P,
-            %   where the point P is provided as another instance of the
-            %   the Point3 class.
-            %
-            %   D = Point3.distance() returns a distance D that is
-            %   the Euclidean distance between this point and the origin 
-            %   ([0; 0; 0]).
-
             if nargin > 1
                 output = (self.x - point.get_x())^2;
                 output = output + (self.y - point.get_y())^2;
