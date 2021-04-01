@@ -40,7 +40,7 @@ classdef Millimeter3D
             %   the Euclidean distance between this point and the point P,
             %   where the point P is provided as another instance of the
             %   the class Simulation.Environment.Millimeter3D.
-            import Length.Millimeter
+            import Quantity.Millimeter
 
             if nargin > 1
                 dist = (self.x - point.get_x())^2;
@@ -131,7 +131,7 @@ classdef Millimeter3D
         end
 
         function meter = convert_meter(self)
-            import Length.Meter3D
+            import Quantity.Meter3D
 
             meter = Meter3D(self.x/1000, self.y/1000, self.z/1000);
         end

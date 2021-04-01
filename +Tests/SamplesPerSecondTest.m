@@ -14,16 +14,16 @@ classdef SamplesPerSecondTest < matlab.unittest.TestCase
 
     methods (Test)
         function test_get(testCase)
-            import Frequency.SamplesPerSecond
+            import Quantity.SamplesPerSecond
             H = SamplesPerSecond(10000);
             testCase.verifyEqual(H.get(), 10000);
         end
 
         function test_period_conversion(testCase)
-            import Frequency.SamplesPerSecond
+            import Quantity.SamplesPerSecond
             H = SamplesPerSecond(10000);
             P = H.convert_period();
-            testCase.verifyClass(P, 'Time.Second');
+            testCase.verifyClass(P, 'Quantity.Second');
             testCase.verifyEqual(P.get(), 0.0001);
         end
 

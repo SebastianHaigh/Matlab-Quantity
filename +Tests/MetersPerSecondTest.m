@@ -16,9 +16,9 @@ classdef MetersPerSecondTest < matlab.unittest.TestCase
 
     methods (TestMethodSetup)
         function setup_test(testCase)
-            import Speed.MetersPerSecond
-            import Time.Second
-            import Length.Meter
+            import Quantity.MetersPerSecond
+            import Quantity.Second
+            import Quantity.Meter
             
             testCase.MPS1 = MetersPerSecond(10);
             testCase.MPS2 = MetersPerSecond(5);

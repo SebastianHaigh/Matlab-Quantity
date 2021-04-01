@@ -53,7 +53,7 @@ classdef Millimeter
             %
             %   M = Millimeter.convert_meter()
 
-            meters = Length.Meter(self.value/1000);
+            meters = Quantity.Meter(self.value/1000);
         end
     end
 end

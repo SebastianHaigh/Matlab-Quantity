@@ -14,18 +14,18 @@ classdef HertzTest < matlab.unittest.TestCase
 
     methods (Test)
         function test_get(testCase)
-            import Frequency.Hertz
+            import Quantity.Hertz
             
             H = Hertz(10000);
             testCase.verifyEqual(H.get(), 10000);
         end
 
         function test_period_conversion(testCase)
-            import Frequency.Hertz
+            import Quantity.Hertz
 
             H = Hertz(10000);
             P = H.convert_period();
-            testCase.verifyClass(P, 'Time.Second');
+            testCase.verifyClass(P, 'Quantity.Second');
             testCase.verifyEqual(P.get(), 0.0001);
         end
 

@@ -20,13 +20,13 @@ classdef MetersPerSecond
         end
         
         function meters = convert_meter(self, seconds)
-            import Length.Meter
+            import Quantity.Meter
 
             meters = Meter(self.value * seconds.get());
         end
 
         function seconds = convert_second(self, meters)
-            import Time.Second
+            import Quantity.Second
 
             seconds = Second(meters.get() / self.value);
         end

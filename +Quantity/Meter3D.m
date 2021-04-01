@@ -31,7 +31,7 @@ classdef Meter3D
             %
             %   D = Meter3D.distance() returns the length of the Meter3D vector,
             %   or its distance from the origin
-            import Length.Meter
+            import Quantity.Meter
 
             if nargin > 1
                 dist = (self.x - point.get_x())^2;
@@ -123,7 +123,7 @@ classdef Meter3D
         end
 
         function meter = convert_millimeter(self)
-            import Length.Millimeter3D
+            import Quantity.Millimeter3D
 
             meter = Millimeter3D(self.x*1000, self.y*1000, self.z*1000);
         end

@@ -4,7 +4,7 @@ classdef Sample
     
     properties
         number_of_samples
-        period Time.Second
+        period Quantity.Second
     end
     
     methods

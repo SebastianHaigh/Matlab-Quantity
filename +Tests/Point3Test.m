@@ -1,10 +1,40 @@
 classdef Point3Test < matlab.unittest.TestCase
 
     methods (Test)
-        function test_object_construction(testCase)
+        function test_object_construction_from_xyz_components(testCase)
             import Quantity.Point3
             p = Point3(0, 0, 0);
             testCase.verifyClass(p, 'Quantity.Point3');
+        end
+
+        function test_object_construction_from_column_vector(testCase)
+            import Quantity.Point3
+            vec = [1; 2; 3];
+            p = Point3(vec);
+            testCase.verifyClass(p, 'Quantity.Point3');
+            testCase.verifyEqual(p.get(), vec);
+        end
+
+        function test_object_construction_from_row_vector(testCase)
+            import Quantity.Point3
+            vec = [1, 2, 3];
+            p = Point3(vec);
+            testCase.verifyClass(p, 'Quantity.Point3');
+            testCase.verifyEqual(p.get(), vec');
+        end
+
+        function test_object_construction_from_2_vector(testCase)
+            import matlab.unittest.constraints.Throws
+            import Quantity.Point3
+            vec = [1, 2];
+            testCase.verifyThat(@() Point3(vec), Throws('Point3:InvalidInput'));
+        end
+
+        function test_object_construction_from_2_components(testCase)
+            import matlab.unittest.constraints.Throws
+            import Quantity.Point3
+            vec = [1, 2];
+            testCase.verifyThat(@() Point3(vec(1), vec(2)), Throws('Point3:InvalidInput'));
         end
 
         function test_get_methods(testCase)
@@ -65,8 +95,8 @@ classdef Point3Test < matlab.unittest.TestCase
             vec1 = [127; 729; 12];
             vec2 = [12; 729; 127];
 
-            p1 = Point3(vec(1), vec(2), vec(3));
-            p2 = Point3(vec(1), vec(2), vec(3));
+            p1 = Point3(vec1(1), vec1(2), vec1(3));
+            p2 = Point3(vec2(1), vec2(2), vec2(3));
 
             p3 = p1.add(p2);
             p4 = p2.add(p1);
@@ -74,6 +104,28 @@ classdef Point3Test < matlab.unittest.TestCase
             p6 = add(p2, p1);
 
             testCase.verifyEqual(p3.get(), vec1 + vec2);
+            testCase.verifyEqual(p4.get(), vec1 + vec2);
+            testCase.verifyEqual(p5.get(), vec1 + vec2);
+            testCase.verifyEqual(p6.get(), vec1 + vec2);
+        end
+
+        function test_sub(testCase)
+            import Quantity.Point3
+            vec1 = [127; 729; 12];
+            vec2 = [12; 729; 127];
+
+            p1 = Point3(vec1(1), vec1(2), vec1(3));
+            p2 = Point3(vec2(1), vec2(2), vec2(3));
+
+            p3 = p1.sub(p2);
+            p4 = sub(p1, p2);
+            p5 = p2.sub(p1);
+            p6 = sub(p2, p1);
+
+            testCase.verifyEqual(p3.get(), vec1 - vec2);
+            testCase.verifyEqual(p4.get(), vec1 - vec2);
+            testCase.verifyEqual(p5.get(), vec2 - vec1);
+            testCase.verifyEqual(p6.get(), vec2 - vec1);
         end
     end
 

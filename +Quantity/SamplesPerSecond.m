@@ -20,7 +20,7 @@ classdef SamplesPerSecond
         end
         
         function seconds = convert_period(self)
-            import Time.Second
+            import Quantity.Second
             
             seconds = Second(1/self.frequency);
         end

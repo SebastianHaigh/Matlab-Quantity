@@ -14,8 +14,8 @@ classdef MillisecondTest < matlab.unittest.TestCase
 
     methods (TestMethodSetup)
         function setup_test(testCase)
-            import Time.Millisecond
-            import Frequency.SamplesPerSecond
+            import Quantity.Millisecond
+            import Quantity.SamplesPerSecond
 
             testCase.MS = Millisecond(10);
             testCase.SR = SamplesPerSecond(1000);
